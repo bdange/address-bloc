@@ -11,5 +11,8 @@
     "url": "/Users/benjamindange/bloc/Node/address-bloc/.git/"
   },
   "author": "Benjamin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
 }
