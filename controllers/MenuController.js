@@ -51,7 +51,15 @@ module.exports = class MenuController {
     process.exit();
   }
 
+  getContactCount() {
+    return this.contacts.length;
+  }
+
   getDate() {
-    console.log(Date());
+    console.log(new Date());
+  }
+
+  remindMe() {
+    return "Learning is a life-long pursuit.";
   }
 };
