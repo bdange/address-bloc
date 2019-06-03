@@ -8,7 +8,7 @@ module.exports = class MenuController {
         type: "list",
         name: "mainMenuChoice",
         message: "Please choose from an option below: ",
-        choices: ["Add new contact", "Exit", "Date"]
+        choices: ["Add new contact", "View all contacts", "Exit", "Date"]
       }
     ];
     this.book = new ContactController();
@@ -23,6 +23,9 @@ module.exports = class MenuController {
           case "Add new contact":
             this.addContact();
             break;
+          case "View all contacts":
+            this.getContacts();
+            break;
           case "Exit":
             this.exit();
           case "Date":
@@ -34,6 +37,27 @@ module.exports = class MenuController {
       })
       .catch(err => {
         console.log(err);
+      });
+  }
+
+  getContacts() {
+    this.clear();
+
+    this.book
+      .getContacts()
+      .then(contacts => {
+        for (let contact of contacts) {
+          console.log(`
+        name: ${contact.name}
+        phone number: ${contact.phone}
+        email: ${contact.email}
+        ---------------`);
+        }
+        this.main();
+      })
+      .catch(err => {
+        console.log(err);
+        this.main();
       });
   }
 
