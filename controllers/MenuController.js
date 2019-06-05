@@ -74,6 +74,25 @@ module.exports = class MenuController {
     console.log("\x1Bc");
   }
 
+  delete(contact) {
+    inquirer
+      .prompt(this.book.deleteConfirmQuestions)
+      .then(answer => {
+        if (answer.confirmation) {
+          this.book.delete(contact.id);
+          console.log("contact deleted!");
+          this.main();
+        } else {
+          console.log("contact not deleted");
+          this.showContact(contact);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.main();
+      });
+  }
+
   addContact() {
     this.clear();
     inquirer.prompt(this.book.addContactQuestions).then(answers => {
