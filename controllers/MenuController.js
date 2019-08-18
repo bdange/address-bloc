@@ -13,8 +13,7 @@ module.exports = class MenuController {
           "View all contacts",
           "Search for a contact",
           "Date",
-          "Exit",
-          "Clear"
+          "Exit"
         ]
       }
     ];
@@ -40,9 +39,6 @@ module.exports = class MenuController {
             break;
           case "Search for a contact":
             this.search();
-            break;
-          case "Clear":
-            this.clear();
             break;
           default:
             console.log("Invalid input");
